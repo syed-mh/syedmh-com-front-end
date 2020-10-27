@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;700&display=swap')
+    
+html
+    font-size: 18px    
+
+body
+    background-color: $background-color
+    margin: 0
+
+div.App
+    max-width: 1300px
+    position: relative
+    margin: 0 auto
+
+p, li, span
+    color: $primary-contrast-color
+
+p, li, span, a, h1, h2, h3, h4, h5, h6
+    font-family: $font-family
+
+h1
+    color: $primary-color
+    text-shadow: $primary-box-shadow
+    font-size: $h1-l
+    text-transform: uppercase
+
+button.primary-button
+    color: $secondary-color
+    position: relative
+    padding: 10px 10px
+    box-sizing: border-box
+    outline: none
+    border: 0
+    background: 0
+    cursor: pointer
+    font-size: $h3
+    letter-spacing: 2px
+    text-transform: lowercase
+    font-weight: $font-weight-bold
+    text-shadow: $secondary-box-shadow
+
+    &::after
+        content: ''
+        display: block
+        width: 50%
+        position: absolute
+        top: 100%
+        left: 0
+        height: 5px
+        border-radius: 10px
+        background-color: $primary-color
+        box-shadow: $primary-box-shadow
+        transition: width $transition
+
+    &:hover
+        border: 0
+        outline: none
+        background: transparent
+
+        &::after
+            width: 75%
