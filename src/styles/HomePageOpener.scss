@@ -1,0 +1,28 @@
+section.page-section.opener {
+  display: flex;
+  padding: 0;
+  height: 50vh;
+  max-height: 32rem;
+  div.content-container {
+    display: inline-block;
+    flex: 3;
+    margin: 0 0 0 -3rem;
+    z-index: 2;
+    h3 {
+      text-transform: lowercase;
+      margin: 4rem 0 0.5rem;
+      &:hover { text-shadow: $primary-box-shadow; }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+    }
+    h2 {
+      margin: 0;
+      font-size: $h1;
+      line-height: $h1;
+      text-transform: uppercase;
+    }
+    button { margin-left: 4rem; }
+  }
+}

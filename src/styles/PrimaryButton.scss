@@ -1,0 +1,41 @@
+button.primary-button {
+  outline: none;
+  border: 0;
+  background: 0;
+  margin: 2rem 0 0;
+  display: block;
+  &.centered { margin: 2rem auto 0; }
+  a {
+    color: $secondary-color;
+    position: relative;
+    padding: 0.8rem;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: $h3;
+    letter-spacing: 2px;
+    text-transform: lowercase;
+    font-weight: $font-weight-bold;
+    text-shadow: $contrasting-box-shadow;
+    font-family: $font-family;
+    text-decoration: none;
+    &::after {
+      content: '';
+      display: block;
+      width: 50%;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      height: 5px;
+      border-radius: 0.8rem;
+      background-color: $primary-color;
+      box-shadow: $primary-box-shadow;
+      transition: width $transition;
+    }
+    &:hover {
+      border: 0;
+      outline: none;
+      background: transparent;
+        &::after { width: 75%; }
+    }
+  }
+}

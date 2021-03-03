@@ -1,0 +1,66 @@
+article.resource-card {
+  width: calc(100% / 3);
+  display: inline-block;
+  padding: 0.4rem;
+  box-sizing: border-box;
+  figure.featured-image-container {
+    height: 25rem;
+    z-index: 1;
+    position: relative;
+  }
+  div.card-details {
+    padding: 0 1rem;
+    margin-top: -1rem;
+    position: relative;
+    z-index: 2;
+    a.card-category {
+      text-decoration: none;
+      transition: text-shadow $transition;
+      h4 {
+        position: relative;
+        display: block;
+        margin: 0;
+        color: $primary-color;
+        text-transform: lowercase;
+        font-size: $h3;
+        line-height: $h3;
+        font-weight: 500;
+      }
+      &:hover { text-shadow: $primary-box-shadow; }
+    }
+    a.card-title {
+      margin: 0.5rem 0 0;
+      width: 100%;
+      display: inline-block;
+      vertical-align: top;
+      h3 {
+        text-transform: uppercase;
+        color: $primary-contrast-color;
+        font-size: $h2;
+        line-height: $h2;
+        font-weight: 700;
+        margin: 0;
+        width: calc(100% - 3rem);
+        display: inline-block;
+        vertical-align: top;
+      }
+      svg {
+        font-size: 2rem;
+        line-height: 2rem;
+        width: 3rem;
+        text-align: center;
+        color: $secondary-color;
+        filter: drop-shadow(0 0 6px rgba(255, 248, 248, 0));
+        position: relative;
+        left: 0;
+        transition: left $transition, filter $transition;
+      }
+      &:hover {
+        svg {
+          left: -0.2rem;
+          filter: drop-shadow(0 0 6px rgba(255, 248, 248, 0.2));
+        }
+      }
+    }
+  }
+}

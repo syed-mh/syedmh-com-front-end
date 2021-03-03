@@ -1,0 +1,71 @@
+// PRIMARY COLORS
+$primary-color: #ffa90a;
+$primary-accent-color: #c90505;
+$primary-box-shadow: 0 0 6px $primary-accent-color;
+    
+// SECONDARY COLORS
+$secondary-color: #00c5ff;
+$secondary-accent-color: #83d8ff;
+$secondary-box-shadow: 0 0 6px $secondary-accent-color;
+
+// CONTRASTING COLORS
+$primary-contrast-color: #FFF8F8;
+$contrasting-box-shadow: 0 0 6px rgba(255, 248, 248, 0.5);
+
+// BACKGROUND COLORS
+$background-color: #191919;
+
+// OVERLAY COLORS
+$primary-overlay-color: #bf00ff;
+$primary-overlay-opacity: 0.25;
+$primary-overlay-blend: color;
+$secondary-overlay-color: #8000ff;
+$secondary-overlay-opacity: 0.2;
+$secondary-overlay-blend: luminosity;
+
+// FONT FAMILIES
+// $font-family: IBM Plex Mono, monospace;
+$font-family: Manrope, monospace;
+
+// FONT SIZES
+$h1-l: 3.5rem;
+$h1: 2.5rem;
+$h2: 1.7rem;
+$h3: 1.3rem;
+$h4: 1rem;
+$h5: 0.8rem;
+$h6: 0.6rem;
+$p: 1rem;
+
+// FONT WEIGHTS
+$font-weight-light: 400;
+$font-weight-bold: 700;
+
+// TRANSITION
+$transition: 150ms ease-in-out;
+
+// Default element properties
+@mixin glowing-border($placement: bottom) {
+  content: '';
+  background: $primary-color;
+  box-shadow: $primary-box-shadow;
+  height: 3px;
+  width: 100%;
+  position: absolute;
+  #{$placement}: 0;
+  left: 0;
+  border-radius: 0.5rem;
+}
+
+@mixin background-pattern {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: url('/public/background-texture.png');
+  background-repeat: repeat;
+  opacity: 0.8;
+}

@@ -1,0 +1,140 @@
+@media only screen and (max-width: 1280px) {
+  header.site-header::after {
+    border-radius: 0;
+  }
+  main.website-content {
+    width: 100%;
+    max-width: 100%;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    box-sizing: border-box;
+  }
+  footer.site-footer::before {
+    border-radius: 0;
+  }
+}
+@media only screen and (max-width: 980px) {
+  section.page-section.opener {
+    height: 35vh;
+  }
+}
+@media only screen and (max-width: 860px) {
+  h1 {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+  section.page-section.about {
+    p {
+      width: 75%;
+    }
+  }
+  article.resource-card {
+    figure.featured-image-container {
+      height: 15rem;
+    }
+    div.card-details {
+      a.card-title {
+        h3 {
+          width: 100%;
+        }
+        svg {
+          display: none;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 768px) {
+  header.site-header {
+    nav.menu {
+      display: none;
+    }
+    span.mobile-nav {
+      display: inline-block;
+    }
+  }
+  article.resource-card {
+    figure.featured-image-container {
+      height: 15rem;
+    }
+  }
+}
+@media only screen and (max-width: 680px) {
+  section.page-section {
+    h1 {
+      text-align: left;
+    }
+    &.opener {
+      display: block;
+      height: unset;
+      max-height: unset;
+      figure.featured-image-container {
+        height: 50vw;
+        max-height: 25rem;
+        position: relative;
+        z-index: 1;
+      }
+      div.content-container {
+        position: relative;
+        z-index: 2;
+        margin: -1.2rem 0 0;
+        h3.category {
+          display: block;
+          position: relative;
+          margin: 0 0 0.5rem;
+        }
+        button.primary-button {
+          margin-left: 0;
+        }
+      }
+    }
+    &.about {
+      margin: 2rem 0 0;
+      padding: 2rem 0;
+      p {
+        padding: 0;
+        width: 80%;
+      }
+    }
+    button.primary-button {
+      &.centered {
+        margin: 2rem 0 0;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 640px) {
+  article.resource-card {
+    width: 100%;
+    padding: 1rem 0;
+    div.inner {
+      div.card-details {
+        a.card-title {
+          h3 {
+            display: inline-block;
+            width: calc(100% - 3rem);
+          }
+          svg {
+            width: 3rem;
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 480px) {
+  html { font-size: 14px; }
+  h1 {
+    font-size: 2.8rem;
+    line-height: 2.8rem;
+  }
+  section.page-section {
+    &.about {
+      p { width: 100%; }
+    }
+  }
+}
+@media only screen and (max-width: 320px) {
+  html { font-size: 12px; }
+}

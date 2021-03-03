@@ -1,0 +1,124 @@
+header.site-header {
+  height: 6rem;
+  display: block;
+  position: fixed;
+  box-sizing: border-box;
+  z-index: 10;
+  width: 100%;
+  max-width: inherit;
+  background-color: $background-color;
+  &::before {
+    @include background-pattern;
+  }
+  &::after {
+    @include glowing-border;
+  }
+  span.logo-container {
+    width: 15%;
+    display: inline-block;
+    height: 100%;
+    position: relative;
+    padding: 1.2rem 1.4rem;
+    box-sizing: border-box;
+    z-index: 2;
+  }
+  nav {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    width: 85%;
+    position: relative;
+    vertical-align: top;
+    padding: 0 0.4rem;
+    box-sizing: border-box;
+    a {
+      text-shadow: 0 0 0 rgba(0,0,0,0);
+      color: $secondary-color;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: text-shadow $transition, color $transition;
+      &.active, &:hover {
+        color: $primary-color;
+        text-shadow: $primary-box-shadow;
+      }
+    }
+    &.menu {
+      span.menu-item {
+        padding: 0 1.2rem;
+        display: inline-block;
+        box-sizing: border-box;
+        a {
+          font-size: $p;
+          line-height: $p;
+          font-weight: 700;
+          letter-spacing: 1px;
+        }
+      }
+    }
+  }
+  span.mobile-nav {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: right;
+    height: 100%;
+    width: 100%;
+    vertical-align: top;
+    z-index: 1;
+    span.opener {
+      display: inline-flex;
+      font-size: $h1;
+      color: $primary-color;
+      align-items: center;
+      justify-content: flex-end;
+      height: 100%;
+      padding: 0 1.4rem;
+    }
+    nav.menu {
+      display: block;
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      right: -100vh;
+      background: $background-color;
+      z-index: 999;
+      transition: right $transition;
+      &::before {
+        @include background-pattern;
+        z-index: -1;
+      }
+      &.active {
+        right: 0;
+      }
+      span.closer {
+        padding: 0 1.4rem;
+        font-size: $h1;
+        color: $primary-color;
+        height: 6rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+      span.menu-items-container {
+        display: block;
+        span.menu-item {
+          display: block;
+          padding: 0;
+          a {
+            display: block;
+            width: 100%;
+            padding: 1rem 1.4rem;
+            box-sizing: border-box;
+            font-size: $h1;
+            line-height: $h1;
+            font-weight: 800;
+            position: relative;
+          }
+        }
+      }
+    }
+  }
+}

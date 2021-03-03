@@ -1,0 +1,44 @@
+// PRIMARY COLORS
+$primary-color: #ffa90a;
+$primary-accent-color: #8e0101;
+$primary-box-shadow: 0 0 6px $primary-accent-color;
+    
+// SECONDARY COLORS
+$secondary-color: #00c5ff;
+$secondary-accent-color: #83d8ff;
+$secondary-box-shadow: 0 0 6px $secondary-accent-color;
+
+// CONTRASTING COLORS
+$primary-contrast-color: #FFF8F8;
+$contrasting-box-shadow: 0 0 6px rgba(255, 248, 248, 0.5);
+
+// BACKGROUND COLORS
+$background-color: #191919;
+
+// OVERLAY COLORS
+$primary-overlay-color: #bf00ff;
+$primary-overlay-opacity: 0.25;
+$primary-overlay-blend: color;
+$secondary-overlay-color: #8000ff;
+$secondary-overlay-opacity: 0.2;
+$secondary-overlay-blend: luminosity;
+
+// FONT FAMILIES
+$font-family: IBM Plex Mono, monospace;
+
+// FONT SIZES
+$h1-l: 3.5rem;
+$h1: 2.5rem;
+$h2: 1.7rem;
+$h3: 1.3rem;
+$h4: 1rem;
+$h5: 0.8rem;
+$h6: 0.6rem;
+$p: 1rem;
+
+// FONT WEIGHTS
+$font-weight-light: 400;
+$font-weight-bold: 700;
+
+// TRANSITION
+$transition: 150ms ease-in-out;
