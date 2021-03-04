@@ -2,7 +2,6 @@
 // DO NOT PLACE STYLES DIRECTLY IN THIS FILE
     
 // IMPORT FONTS
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap');
 
 // IMPORT VARIABLES
@@ -12,16 +11,20 @@
 @import './styles/general.scss';
 
 // IMPORT ROUTE STYLESHEETS
-
+@import './styles/Home.scss';
+@import './styles/NotFound.scss';
+@import './styles/Project.scss';
 
 // IMPORT COMPONENT STYLESHEETS
+@import './styles/Archive.PageOpener.scss';
 @import './styles/Footer.scss';
 @import './styles/Header.scss';
-@import './styles/HomePageOpener.scss';
+@import './styles/Home.PageOpener.scss';
 @import './styles/ImageWithOverlay.scss';
 @import './styles/Logo.scss';
-@import './styles/NotFound.scss';
+@import './styles/PageView.scss';
 @import './styles/PrimaryButton.scss';
+@import './styles/Project.PageOpener.scss';
 @import './styles/Preloader.scss';
 @import './styles/ResourceCard.scss';
 

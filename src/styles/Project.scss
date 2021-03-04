@@ -1,0 +1,75 @@
+section.page-section {
+  &.project-details {
+    padding-top: 0;
+    display: flex;
+    margin: 0 -1rem;
+    div.project-details {
+      width: 50%;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 1rem;
+      margin: 0;
+      box-sizing: border-box;
+      vertical-align: top;
+      h2 {
+        margin: 0;
+        display: block;
+      }
+      p {
+        margin: 1rem 0 0;
+        padding: 0;
+      }
+    }
+    section.project-details-card {
+      width: 50%;
+      display: inline-block;
+      padding: 0 1rem;
+      box-sizing: border-box;
+      vertical-align: top;
+      div.inner {
+        background-color: $background-color;
+        border: 2px solid $primary-color;
+        box-shadow: $primary-box-shadow;
+        padding: 0.5rem 1rem;
+        span.details-item {
+          display: flex;
+          padding: 0.2rem 0;
+          span.title {
+            margin-right: 10px;
+            display: inline-flex;
+            align-items: center;
+            vertical-align: top;
+          }
+          span.content {
+            display: inline-block;
+            vertical-align: top;
+            a, svg {
+              color: $primary-contrast-color;
+              text-decoration: none;
+            }
+            a {
+              display: inline-block;
+              transition: color $transition;
+              margin: 0.3rem;
+              &:hover {
+                color: $secondary-color;
+              }
+              &.tag {
+                padding: 0.2rem 0.5rem;
+                background-color: $secondary-color;
+                color: $background-color;
+                font-weight: 700;
+                font-size: 0.8rem;
+                line-height: 0.8rem;
+                transition: box-shadow $transition;
+                &:hover {
+                  box-shadow: $contrasting-box-shadow;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

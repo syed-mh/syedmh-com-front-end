@@ -1,9 +1,16 @@
-import React from 'react';
+import Helmet from 'react-helmet';
+
+import PageOpener from '../components/Archive.PageTItle';
 
 const Contact = () => {
-    return(
-        <h1>Contact</h1>
-    )
-}
-
-export default Contact;
+  return(
+    <>
+      <Helmet>
+        <title>Contact | SyedMH - Full Stack Web Developer</title>
+      </Helmet>
+      <PageOpener title='Contact' />
+    </>
+  )
+  }
+  
+  export default Contact;

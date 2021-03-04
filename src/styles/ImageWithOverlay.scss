@@ -1,12 +1,11 @@
 figure.featured-image-container {
   position: relative;
-  display: inline-block;
-  height: inherit;
-  max-height: inherit;
+  display: block;
+  height: 0;
+  margin: 0;
+  padding-top: calc(100% / 16 * 6.5);
   flex: 10;
   z-index: 1;
-  margin-block: 0;
-  margin-inline: 0;
   &::before, &::after {
     content: '';
     display: block;
@@ -32,5 +31,20 @@ figure.featured-image-container {
     height: 100%;
     object-fit: cover;
     object-position: bottom;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  span.photo-credits {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    color: $secondary-color;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    display: inline-block;
+    opacity: 0.9;
+    background-color: $background-color;
+    z-index: 2;
   }
 }

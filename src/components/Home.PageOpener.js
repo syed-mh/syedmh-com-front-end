@@ -5,7 +5,7 @@ import PrimaryButton from './PrimaryButton'
 
 const PageOpener = ({ featuredImage, alternativeText, project_category, title, slug }) => {
   return(
-    <section className='page-section opener'>
+    <>
       <ImageWithOverlay
         url={featuredImage}
         alternativeText={alternativeText} />
@@ -20,7 +20,7 @@ const PageOpener = ({ featuredImage, alternativeText, project_category, title, s
         </h2>
         <PrimaryButton to={`/projects/${slug}`}>Explore</PrimaryButton>
       </div>
-    </section>
+    </>
   )
 }
 

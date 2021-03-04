@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import { ApolloClient, InMemoryCache, gql } from '@apollo/client'
+import React, { useEffect, useState } from 'react';
+import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
+import Helmet from 'react-helmet';
 
-import ErrorPage from './ErrorPage'
-import PageOpener from '../components/Home.PageOpener'
-import FeaturedProjects from '../components/Home.FeaturedProjects'
-import PrimaryButton from '../components/PrimaryButton'
-import Preloader from '../components/Preloader'
+import ErrorPage from './ErrorPage';
+import PageOpener from '../components/Home.PageOpener';
+import FeaturedProjects from '../components/Home.FeaturedProjects';
+import PrimaryButton from '../components/PrimaryButton';
+import Preloader from '../components/Preloader';
 
 const client = new ApolloClient({
   uri: process.env.REACT_APP_API_URI,
@@ -77,12 +78,18 @@ const Home = () => {
 
     return(
       <>
-        <PageOpener
-          slug = {data.highlightProject[0].slug}
-          featuredImage={data.highlightProject[0].featuredImage.url}
-          alternativeText={data.highlightProject[0].featuredImage.alternativeText}
-          project_category={data.highlightProject[0].project_category}
-          title={data.highlightProject[0].title} />
+        <Helmet>
+          <title>SyedMH - Full Stack Web Developer</title>
+        </Helmet>
+        <section className='page-section opener'>
+          <PageOpener
+            slug = {data.highlightProject[0].slug}
+            featuredImage={data.highlightProject[0].featuredImage.url}
+            alternativeText={data.highlightProject[0].featuredImage.alternativeText}
+            project_category={data.highlightProject[0].project_category}
+            title={data.highlightProject[0].title}
+          />
+        </section>
         <section className='page-section about'>
           <h1 className='title'>
             Full Stack Web Developer
@@ -90,7 +97,9 @@ const Home = () => {
           <p>{data.homeAbout[0].textContent}</p>
           <PrimaryButton to='/about'>Read More</PrimaryButton>
         </section>
-        <FeaturedProjects featuredProjects={data.featuredProjects} />
+        <section className='page-section featured-projects'>
+          <FeaturedProjects featuredProjects={data.featuredProjects} />
+        </section>
       </>
     )
 

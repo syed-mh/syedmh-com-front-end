@@ -33,6 +33,7 @@ footer.site-footer {
       color: inherit;
       text-decoration: none;
       svg {
+        color: $secondary-color;
         margin: 0 0.5rem;
         transition: filter $transition;
         &:hover {

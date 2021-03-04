@@ -25,13 +25,13 @@ $secondary-overlay-blend: luminosity;
 
 // FONT FAMILIES
 // $font-family: IBM Plex Mono, monospace;
-$font-family: Manrope, monospace;
+$font-family: Manrope, Helvetica, Arial, sans-serif;
 
 // FONT SIZES
 $h1-l: 3.5rem;
-$h1: 2.5rem;
-$h2: 1.7rem;
-$h3: 1.3rem;
+$h1: 3.5rem;
+$h2: 2.5rem;
+$h3: 1.5rem;
 $h4: 1rem;
 $h5: 0.8rem;
 $h6: 0.6rem;
@@ -67,5 +67,6 @@ $transition: 150ms ease-in-out;
   left: 0;
   background-image: url('/public/background-texture.png');
   background-repeat: repeat;
-  opacity: 0.8;
+  background-attachment: fixed;
+  opacity: 0.5;
 }

@@ -12,10 +12,15 @@
   footer.site-footer::before {
     border-radius: 0;
   }
-}
-@media only screen and (max-width: 980px) {
-  section.page-section.opener {
-    height: 35vh;
+  section.page-section {
+    &.opener {
+      div.content-container {
+        h2 {
+          font-size: $h2;
+          line-height: $h2;
+        }
+      }
+    }
   }
 }
 @media only screen and (max-width: 860px) {
@@ -23,14 +28,32 @@
     font-size: 3rem;
     line-height: 3rem;
   }
-  section.page-section.about {
-    p {
-      width: 75%;
+  section.page-section {
+    &.opener {
+      padding: 0 0 2rem 0;
+      display: block;
+      figure.featured-image-container {
+        display: block;
+      }
+      div.content-container {
+        position: relative;
+        margin: -1rem 0 1.5rem;
+        h3 { margin: 0 0 0.5rem; }
+        button { margin-left: 0; }
+      }
+    }
+    &.about {
+      padding: 2rem 0;
+      margin: 0;
+      p {
+        width: 75%;
+        padding: 0;
+      }
     }
   }
   article.resource-card {
     figure.featured-image-container {
-      height: 15rem;
+      padding-top: calc(100% / 16 * 10);
     }
     div.card-details {
       a.card-title {
@@ -53,11 +76,6 @@
       display: inline-block;
     }
   }
-  article.resource-card {
-    figure.featured-image-container {
-      height: 15rem;
-    }
-  }
 }
 @media only screen and (max-width: 680px) {
   section.page-section {
@@ -68,12 +86,6 @@
       display: block;
       height: unset;
       max-height: unset;
-      figure.featured-image-container {
-        height: 50vw;
-        max-height: 25rem;
-        position: relative;
-        z-index: 1;
-      }
       div.content-container {
         position: relative;
         z-index: 2;

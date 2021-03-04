@@ -1,8 +1,6 @@
 section.page-section.opener {
   display: flex;
   padding: 0;
-  height: 50vh;
-  max-height: 32rem;
   div.content-container {
     display: inline-block;
     flex: 3;
@@ -19,6 +17,7 @@ section.page-section.opener {
     }
     h2 {
       margin: 0;
+      color: $primary-contrast-color;
       font-size: $h1;
       line-height: $h1;
       text-transform: uppercase;
