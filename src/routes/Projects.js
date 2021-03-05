@@ -50,8 +50,6 @@ const Projects = () => {
     })()
   }, [])
 
-  console.log(data)
-
   if(preloader) {
 
     return <Preloader />
