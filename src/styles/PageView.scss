@@ -9,13 +9,14 @@ section.page-view {
         figure.view-container { padding-top: calc(80% / 3.8 * 3); }
       }
       &.mobile {
-        width: 40%;
+        width: 35%;
         figure.view-container { padding-top: calc(80% / 9 * 18); }
       }
-      width: 100%;
+      width: 90%;
       margin: 0 auto;
       border: 2px $primary-color solid;
       box-sizing: border-box;
+      transition: width $transition;
       span.title-bar {
         display: block;
         width: 100%;
@@ -74,6 +75,32 @@ section.page-view {
         height: 0;
         margin: 0;
         box-sizing: border-box;
+        transition: padding $transition;
+        &::after {
+          content: 'LOADING PREVIEW';
+          font-size: $h3;
+          line-height: $h3;
+          font-family: $font-family;
+          font-weight: 600;
+          color: $primary-color;
+          text-shadow: $primary-box-shadow;
+          background: $background-color;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          opacity: 0;
+          transition: opacity $transition;
+        }
+        &.loading {
+          &::after {
+            opacity: 1;
+          }
+        }
         img {
           width: 100%;
           position: absolute;

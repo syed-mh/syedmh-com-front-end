@@ -3,7 +3,7 @@ import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 import Helmet from 'react-helmet';
 
 import ErrorPage from './ErrorPage';
-import PageOpener from '../components/Archive.PageTItle';
+import PageTitle from '../components/PageTItle';
 import Preloader from '../components/Preloader';
 import ResourceCard from '../components/ResourceCard';
 
@@ -67,7 +67,7 @@ const Projects = () => {
         <Helmet>
           <title>Projects - Full Stack Web Developer</title>
         </Helmet>
-        <PageOpener title='Projects' />
+        <PageTitle title='Projects' />
         <section className='page-section'>
           <section className='cards-container'>
             {data.projects.map((project, index) => {

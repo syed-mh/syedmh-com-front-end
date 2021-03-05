@@ -11,7 +11,7 @@ const ResourceCard = ({slug, resourceName, title, featuredImage, alternativeText
         <div className='card-details'>
           {category
             ?
-              <Link className='card-category' to={`project_category/${category.slug}`}>
+              <Link className='card-category' to={`/project_category/${category.slug}`}>
                 <h4>{category.name}</h4>
               </Link>
             : ''}

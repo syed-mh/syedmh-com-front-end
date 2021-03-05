@@ -13,10 +13,12 @@ import Blog from './routes/Blog';
 import Contact from './routes/Contact';
 import Home from './routes/Home';
 import NotFound from './routes/NotFound';
-import PageOpener from './components/Archive.PageTItle'
+import PageTitle from './components/PageTItle'
 import Project from './routes/Project';
 import ProjectCategory from './routes/ProjectCategory';
 import Projects from './routes/Projects';
+import ProjectType from './routes/ProjectType';
+import Technologies from './routes/Technology';
 
 // IMPORT COMPONENTS
 import Footer from './components/Footer';
@@ -48,7 +50,7 @@ const App = () => {
               <Blog />
             </Route>
             <Route path='/blog/:slug'>
-              <PageOpener title='Blog Post' />
+              <PageTitle title='Blog Post' />
             </Route>
             <Route exact path='/project_category'>
               <Redirect to='/projects'/>
@@ -60,13 +62,13 @@ const App = () => {
               <Redirect to='/projects'/>
             </Route>
             <Route path='/project_type/:slug'>
-              <PageOpener title='Project Type' />
+              <ProjectType />
             </Route>
             <Route path='/technology' exact>
               <Redirect to='/projects'/>
             </Route>
             <Route path='/technology/:slug'>
-              <PageOpener title='Technology' />
+              <Technologies />
             </Route>
             <Route exact path='/contact'>
               <Contact />

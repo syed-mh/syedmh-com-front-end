@@ -18,13 +18,15 @@ section#error {
     }
     h2 {
       font-size: $h1-l;
+      line-height: $h1-l;
       color: $primary-color;
       text-shadow: $primary-box-shadow;
       font-weight: 700;
       margin: 1rem 0 0;
     }
     h5 {
-      font-size: $h2;
+      font-size: $h3;
+      line-height: $h3;
       color: $primary-contrast-color;
       text-transform: lowercase;
       font-weight: 500;
@@ -36,6 +38,7 @@ section#error {
     details {
       color: $primary-contrast-color;
       font-size: $h3;
+      line-height: $h3;
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 1px;

@@ -1,14 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Helmet from 'react-helmet';
 
 import ErrorPage from './ErrorPage';
-import PageTitle from '../components/Archive.PageTItle';
+import PageTitle from '../components/PageTItle';
 import PageOpener from '../components/Project.PageOpener';
 import PageView from '../components/PageView';
 import Preloader from '../components/Preloader';
+import Dropdown from '../components/Dropdown';
 
 const client = new ApolloClient({
   uri: process.env.REACT_APP_API_URI,
@@ -19,9 +20,14 @@ const Project = () => {
 
   const { slug } = useParams();
 
-  const [ data, setData ] = useState({})  
+  const [ data, setData ] = useState({})
+  const [ pageView, setPageView ] = useState('')
+  const [ viewport, setViewport ] = useState('')
+  const [ currentPageView, setCurrentPageView ] = useState({})
   const [ preloader, setPreloader ] = useState(true)
   const [ error, setError ] = useState(false)
+
+  const selectors = useRef()
 
   useEffect(() => {
     if(slug) {
@@ -30,7 +36,7 @@ const Project = () => {
           const { data } = await client.query({
             query: gql`
               query {
-                projects (where: {slug:"${slug}"} ){
+                projects (where: {slug: "${slug}"} ){
                   title,
                   summary,
                   details,
@@ -54,26 +60,40 @@ const Project = () => {
                     slug
                   },
                   pageViews {
-                    viewName,
-                    desktopView {
-                      alternativeText,
-                      url
-                    },
-                    tabletView {
-                      alternativeText,
-                      url
-                    },
-                    mobileView {
-                      alternativeText,
-                      url
+                    name,
+                    views {
+                      desktop {
+                        alternativeText,
+                        url
+                      },
+                      tablet {
+                        alternativeText,
+                        url
+                      },
+                      mobile {
+                        alternativeText,
+                        url
+                      }
                     }
-                  },
-                  viewNames: pageViews {
-                    viewName
                   }
                 }
               }` 
           })
+          if(data.projects[0].pageViews.length) {
+            selectors.current = []
+            data.projects[0].pageViews.forEach(page => {
+              const pageToAdd = {}
+              pageToAdd.name = page.name
+              pageToAdd.views = []
+              for(const view in page.views) {
+                if(view === '__typename') continue
+                pageToAdd.views.push(view)
+              }
+              selectors.current.push(pageToAdd)
+            });
+            setPageView(selectors.current[0].name)
+            setViewport(selectors.current[0].views[0])
+          }
           setData(data.projects[0])
           setError(false)
         } catch (error) {
@@ -85,7 +105,25 @@ const Project = () => {
     }
   }, [slug])
 
-  console.log(data, preloader, error)
+  useEffect(() => {
+    try {
+      if(!(viewport && pageView)) return false
+      setCurrentPageView(data.pageViews.find(page => {
+        return page.name === pageView
+      }))
+    } catch (error) {
+      setError(error)
+    }
+  }, [viewport, pageView, data])
+
+  useEffect(() => {
+    try {
+      if(!Object.keys(currentPageView).length) return false
+      setViewport(selectors.current.find(selector => selector.name === pageView).views[0])
+    } catch(error) {
+      setError(error)
+    }
+  }, [pageView, currentPageView])
 
   if(preloader) {
 
@@ -186,29 +224,37 @@ const Project = () => {
             </div>
           </section>
         </section>
-        <section className='page-section'>
-          <h2>Take a look</h2>
-          <p class='disclaimer'>Note: The previews below do not showcase interactive elements of the project.</p>
-          <section className='page-view'>
-            <div className='view-configuration'>
-              
-            </div>
-            <div className='inner'>
-              <PageView
-                view='desktop'
-                image={data.pageViews[0].desktopView}
-              />
-              <PageView
-                view='tablet'
-                image={data.pageViews[0].tabletView}
-              />
-              <PageView
-                view='mobile'
-                image={data.pageViews[0].mobileView}
-              />
-            </div>
-          </section>
-        </section>
+        {
+          Object.keys(currentPageView).length &&
+            <section className='page-section project-preview'>
+              <h2>Take a look</h2>
+              <p className='disclaimer'>Note: The previews below do not showcase interactive elements of the project.</p>
+              <section className='page-view'>
+                <div className='view-configuration'>
+                  <Dropdown
+                    name='Page'
+                    options={selectors.current.map(selector => selector.name)}
+                    defaultSelection={true}
+                    currentSelection={pageView}
+                    setter={setPageView}
+                  />
+                  <Dropdown
+                    name='Viewport'
+                    options={selectors.current.find(selector => selector.name === pageView).views}
+                    defaultSelection={true}
+                    currentSelection={viewport}
+                    setter={setViewport}
+                  />
+                </div>
+                <div className='inner'>
+                  <PageView
+                    viewport={viewport}
+                    image={currentPageView.views[viewport]}
+                  />
+                </div>
+              </section>
+            </section>
+        }
       </>
     )
 

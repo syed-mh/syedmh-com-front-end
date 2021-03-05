@@ -13,7 +13,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 })
 
-const ProjectCategory = () => {
+const ProjectType = () => {
 
   const [ data, setData ] = useState({})
   const [ preloader, setPreloader ] = useState(true)
@@ -28,7 +28,7 @@ const ProjectCategory = () => {
           const { data } = await client.query({
             query: gql`
               query{
-              projects(limit: 9 where: {project_category: {slug: "${slug}"}}) {
+              projects(limit: 9 where: {project_type: {slug: "${slug}"}}) {
                 slug,
                 title,
                 project_category {
@@ -41,7 +41,7 @@ const ProjectCategory = () => {
                 }
                 summary
               },
-              projectCategories (where: {slug: "${slug}"}) {
+              projectTypes (where: {slug: "${slug}"}) {
                 name
               }
             }` 
@@ -74,9 +74,9 @@ const ProjectCategory = () => {
     return(
       <>
         <Helmet>
-          <title>{data.projectCategories[0].name} | SyedMH - Full Stack Web Developer</title>
+          <title>{data.projectTypes[0].name} Projects | SyedMH - Full Stack Web Developer</title>
         </Helmet>
-        <PageTitle title={data.projectCategories[0].name} />
+        <PageTitle title={`${data.projectTypes[0].name} Projects`} />
         <section className='page-section'>
           <section className='cards-container'>
             {data.projects.map((project, index) => {
@@ -100,4 +100,4 @@ const ProjectCategory = () => {
   }
 }
 
-export default ProjectCategory;
+export default ProjectType;

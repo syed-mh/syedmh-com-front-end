@@ -16,8 +16,7 @@ const GraphQLFetch = class {
    * */
   static client = new ApolloClient({
     url: process.env.REACT_APP_API_URI,
-    cache: new InMemoryCache(),
-    // connectToDevTools: true
+    cache: new InMemoryCache()
   })
 
   /**

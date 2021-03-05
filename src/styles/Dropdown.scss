@@ -1,0 +1,96 @@
+span.dropdown {
+  width: 20rem;
+  display: inline-block;
+  font-size: 1rem;
+  line-height: 1rem;
+  letter-spacing: 1px;
+  margin: 0 0.5rem;
+  vertical-align: top;
+  position: relative;
+  span.outside {
+    position: fixed;
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+  button.selection {
+    display: block;
+    cursor: pointer;
+    font-weight: 600;
+    background-color: $background-color;
+    border: 2px solid $primary-color;
+    color: $primary-color;
+    outline: none;
+    position: relative;
+    text-align: left;
+    font-size: inherit;
+    line-height: inherit;
+    text-transform: uppercase;
+    letter-spacing: inherit;
+    transition: background-color $transition, color $transition;
+    z-index: 1;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    svg, span {
+      color: inherit;
+      font-size: inherit;
+      line-height: inherit;
+    }
+    svg {
+      position: absolute;
+      right: 1rem;
+      transition: transform $transition;
+    }
+  }
+  div.options {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    z-index: 3;
+    width: 100%;
+    border: 2px solid $primary-color;
+    margin-top: 0.5rem;
+    box-sizing: border-box;
+    span.option {
+      display: block;
+      width: 100%;
+      text-transform: capitalize;
+      padding: 0.5rem;
+      font-size: inherit;
+      line-height: inherit;
+      letter-spacing: inherit;
+      box-sizing: border-box;
+      color: $primary-color;
+      background-color: $background-color;
+      transition: color $transition, background-color $transition;
+      &:hover {
+        color: $background-color;
+        background-color: $primary-color;
+      }
+    }
+  }
+  &.active {
+    span.outside {
+      display: block;
+    }
+    button.selection {
+      background-color: $primary-color;
+      color: $background-color;
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+    div.options {
+      display: block;
+    }
+  }
+  &.selected {
+    button.selection {
+      background-color: $primary-color;
+      color: $background-color;
+    }
+  }
+}

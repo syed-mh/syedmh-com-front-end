@@ -55,13 +55,13 @@ const Header = () => {
                         <NavLink exact to='/'>Home</NavLink>
                     </span>
                     <span className='menu-item'>
-                        <NavLink to='/about'>About</NavLink>
-                    </span>
-                    <span className='menu-item'>
                         <NavLink to='/projects'>Projects</NavLink>
                     </span>
                     <span className='menu-item'>
                         <NavLink to='/blog'>Blog</NavLink>
+                    </span>
+                    <span className='menu-item'>
+                        <NavLink to='/about'>About</NavLink>
                     </span>
                     <span className='menu-item'>
                         <NavLink to='/contact'>Contact</NavLink>
@@ -81,13 +81,13 @@ const Header = () => {
                             <NavLink exact to='/'>Home</NavLink>
                         </span>
                         <span className='menu-item'>
-                            <NavLink to='/about'>About</NavLink>
-                        </span>
-                        <span className='menu-item'>
                             <NavLink to='/projects'>Projects</NavLink>
                         </span>
                         <span className='menu-item'>
                             <NavLink to='/blog'>Blog</NavLink>
+                        </span>
+                        <span className='menu-item'>
+                            <NavLink to='/about'>About</NavLink>
                         </span>
                         <span className='menu-item'>
                             <NavLink to='/contact'>Contact</NavLink>

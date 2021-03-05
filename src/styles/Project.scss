@@ -72,4 +72,18 @@ section.page-section {
       }
     }
   }
+  &.project-preview {
+    h2 {
+      margin-bottom: 0;
+    }
+    p.disclaimer {
+      margin-top: 0;
+      font-style: italic;
+    }
+  }
+  section.page-view {
+    div.view-configuration {
+      margin: 0 -0.5rem;
+    }
+  }
 }

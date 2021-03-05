@@ -1,6 +1,6 @@
 import Helmet from 'react-helmet';
 
-import PageOpener from '../components/Archive.PageTItle';
+import PageTitle from '../components/PageTItle';
 
 const Contact = () => {
   return(
@@ -8,7 +8,7 @@ const Contact = () => {
       <Helmet>
         <title>Contact | SyedMH - Full Stack Web Developer</title>
       </Helmet>
-      <PageOpener title='Contact' />
+      <PageTitle title='Contact' />
     </>
   )
   }
