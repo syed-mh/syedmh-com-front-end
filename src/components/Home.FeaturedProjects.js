@@ -6,10 +6,10 @@ const FeaturedProjects = ({ featuredProjects }) => {
     <>
       <h1 className='title centered'>Featured Projects</h1>
       <section className='cards-container'>
-        {featuredProjects.map((project, index) => {
+        {featuredProjects.map(project => {
           return (
             <ResourceCard
-              key={index}
+              key={project.id}
               resourceName='projects'
               slug={project.slug}
               title={project.title}

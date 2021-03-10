@@ -9,11 +9,11 @@ import './App.scss';
 
 // IMPORT ROUTES
 import About from './routes/About';
-import Blog from './routes/Blog';
-import Contact from './routes/Contact';
+// import Blog from './routes/Blog';
+// import Contact from './routes/Contact';
 import Home from './routes/Home';
 import NotFound from './routes/NotFound';
-import PageTitle from './components/PageTItle'
+// import PageTitle from './components/PageTItle'
 import Project from './routes/Project';
 import ProjectCategory from './routes/ProjectCategory';
 import Projects from './routes/Projects';
@@ -46,12 +46,12 @@ const App = () => {
             <Route path='/projects/:slug'>
               <Project />
             </Route>
-            <Route exact path='/blog'>
+            {/* <Route exact path='/blog'>
               <Blog />
-            </Route>
-            <Route path='/blog/:slug'>
+            </Route> */}
+            {/* <Route path='/blog/:slug'>
               <PageTitle title='Blog Post' />
-            </Route>
+            </Route> */}
             <Route exact path='/project_category'>
               <Redirect to='/projects'/>
             </Route>
@@ -70,9 +70,9 @@ const App = () => {
             <Route path='/technology/:slug'>
               <Technologies />
             </Route>
-            <Route exact path='/contact'>
+            {/* <Route exact path='/contact'>
               <Contact />
-            </Route>
+            </Route> */}
             <Route>
               <NotFound />
             </Route>

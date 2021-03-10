@@ -15,6 +15,7 @@ const client = new ApolloClient({
 const query = gql`
         query{
           projects(limit: 9) {
+            id,
             slug,
             title,
             project_category {
@@ -68,10 +69,10 @@ const Projects = () => {
         <PageTitle title='Projects' />
         <section className='page-section'>
           <section className='cards-container'>
-            {data.projects.map((project, index) => {
+            {data.projects.map(project => {
               return (
                 <ResourceCard
-                  key={index}
+                  key={project.id}
                   slug={project.slug}
                   resourceName='projects'
                   title={project.title}

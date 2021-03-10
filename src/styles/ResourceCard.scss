@@ -7,7 +7,7 @@ article.resource-card {
   figure.featured-image-container {
     display: block;
     height: 0;
-    padding-top: 100%;
+    padding-top: calc(100% / 4 * 3);
     z-index: 1;
   }
   div.card-details {

@@ -27,7 +27,7 @@ const Project = () => {
   const [ preloader, setPreloader ] = useState(true)
   const [ error, setError ] = useState(false)
 
-  const selectors = useRef()
+  const viewSelector = useRef()
 
   useEffect(() => {
     if(slug) {
@@ -56,6 +56,7 @@ const Project = () => {
                     url
                   },
                   technologies {
+                    id,
                     name,
                     slug
                   },
@@ -80,7 +81,7 @@ const Project = () => {
               }` 
           })
           if(data.projects[0].pageViews.length) {
-            selectors.current = []
+            viewSelector.current = []
             data.projects[0].pageViews.forEach(page => {
               const pageToAdd = {}
               pageToAdd.name = page.name
@@ -89,10 +90,10 @@ const Project = () => {
                 if(view === '__typename') continue
                 pageToAdd.views.push(view)
               }
-              selectors.current.push(pageToAdd)
+              viewSelector.current.push(pageToAdd)
             });
-            setPageView(selectors.current[0].name)
-            setViewport(selectors.current[0].views[0])
+            setPageView(viewSelector.current[0].name)
+            setViewport(viewSelector.current[0].views[0])
           }
           setData(data.projects[0])
           setError(false)
@@ -119,7 +120,7 @@ const Project = () => {
   useEffect(() => {
     try {
       if(!Object.keys(currentPageView).length) return false
-      setViewport(selectors.current.find(selector => selector.name === pageView).views[0])
+      setViewport(viewSelector.current.find(selector => selector.name === pageView).views[0])
     } catch(error) {
       setError(error)
     }
@@ -208,10 +209,10 @@ const Project = () => {
                   Technologies Used:
                 </span>
                 <span className='content'>
-                  {data.technologies.map((technology, index) => {
+                  {data.technologies.map(technology => {
                     return (
                       <a
-                        key={index}
+                        key={technology.id}
                         href={`/technology/${technology.slug}`}
                         className='tag rounded'
                       >
@@ -233,14 +234,14 @@ const Project = () => {
                 <div className='view-configuration'>
                   <Dropdown
                     name='Page'
-                    options={selectors.current.map(selector => selector.name)}
+                    options={viewSelector.current.map(selector => selector.name)}
                     defaultSelection={true}
                     currentSelection={pageView}
                     setter={setPageView}
                   />
                   <Dropdown
                     name='Viewport'
-                    options={selectors.current.find(selector => selector.name === pageView).views}
+                    options={viewSelector.current.find(selector => selector.name === pageView).views}
                     defaultSelection={true}
                     currentSelection={viewport}
                     setter={setViewport}

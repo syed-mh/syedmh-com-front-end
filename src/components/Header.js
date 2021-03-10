@@ -57,15 +57,15 @@ const Header = () => {
                     <span className='menu-item'>
                         <NavLink to='/projects'>Projects</NavLink>
                     </span>
-                    <span className='menu-item'>
+                    {/* <span className='menu-item'>
                         <NavLink to='/blog'>Blog</NavLink>
-                    </span>
+                    </span> */}
                     <span className='menu-item'>
                         <NavLink to='/about'>About</NavLink>
                     </span>
-                    <span className='menu-item'>
+                    {/* <span className='menu-item'>
                         <NavLink to='/contact'>Contact</NavLink>
-                    </span>
+                    </span> */}
                 </span>
             </nav>
             <span className='mobile-nav'>
@@ -83,15 +83,15 @@ const Header = () => {
                         <span className='menu-item'>
                             <NavLink to='/projects'>Projects</NavLink>
                         </span>
-                        <span className='menu-item'>
+                        {/* <span className='menu-item'>
                             <NavLink to='/blog'>Blog</NavLink>
-                        </span>
+                        </span> */}
                         <span className='menu-item'>
                             <NavLink to='/about'>About</NavLink>
                         </span>
-                        <span className='menu-item'>
+                        {/* <span className='menu-item'>
                             <NavLink to='/contact'>Contact</NavLink>
-                        </span>
+                        </span> */}
                     </span>
                 </nav>
             </span>

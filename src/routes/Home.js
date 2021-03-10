@@ -28,6 +28,7 @@ const query = gql`
             }
           },
           featuredProjects: projects(limit: 3, where: {featured: true}) {
+            id,
             slug,
             title,
             project_category {
@@ -40,8 +41,9 @@ const query = gql`
             }
             summary
           }
-          homeAbout: staticWebsiteTexts(where: {slug: "home-about"}) {
-            textContent
+          homeAbout {
+            designation,
+            content
           }
         }`
 
@@ -92,9 +94,9 @@ const Home = () => {
         </section>
         <section className='page-section about'>
           <h1 className='title'>
-            Full Stack Web Developer
+            {data.homeAbout.designation}
           </h1>
-          <p>{data.homeAbout[0].textContent}</p>
+          <p>{data.homeAbout.content}</p>
           <PrimaryButton to='/about'>Read More</PrimaryButton>
         </section>
         <section className='page-section featured-projects'>

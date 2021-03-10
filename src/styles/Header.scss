@@ -69,7 +69,7 @@ header.site-header {
     z-index: 1;
     span.opener {
       display: inline-flex;
-      font-size: $h1;
+      font-size: $h2;
       color: $primary-color;
       align-items: center;
       justify-content: flex-end;
@@ -95,7 +95,7 @@ header.site-header {
       }
       span.closer {
         padding: 0 1.4rem;
-        font-size: $h1;
+        font-size: $h2;
         color: $primary-color;
         height: 6rem;
         display: inline-flex;
@@ -112,8 +112,8 @@ header.site-header {
             width: 100%;
             padding: 1rem 1.4rem;
             box-sizing: border-box;
-            font-size: $h1;
-            line-height: $h1;
+            font-size: $h2;
+            line-height: $h2;
             font-weight: 800;
             position: relative;
           }

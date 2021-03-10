@@ -23,6 +23,34 @@
     }
   }
 }
+@media only screen and (max-width: 1024px) {
+  section.page-section{
+    &.technologies {
+      ul.technologies-container {
+        li.technology-icon {
+          padding: 2rem;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 960px) {
+  section.page-section {
+    &.project-details {
+      flex-direction: column;
+      div.project-details {
+        width: 100%;
+        margin-bottom: 2rem;
+      }
+      section.project-details-card {
+        width: 100%;
+      }
+    }
+  }
+  span.dropdown {
+    width: 15rem;
+  }
+}
 @media only screen and (max-width: 860px) {
   h1 {
     font-size: 3rem;
@@ -50,6 +78,13 @@
         padding: 0;
       }
     }
+    &.technologies {
+      ul.technologies-container {
+        li.technology-icon {
+          padding: 1.5rem;
+        }
+      }
+    }
   }
   article.resource-card {
     figure.featured-image-container {
@@ -66,6 +101,9 @@
       }
     }
   }
+  ul.expertise-container {
+    column-count: 2;
+  }
 }
 @media only screen and (max-width: 768px) {
   header.site-header {
@@ -74,6 +112,29 @@
     }
     span.mobile-nav {
       display: inline-block;
+    }
+  }
+  section.page-section {
+    &.about-me {
+      flex-direction: column;
+      div.about-me {
+        width: 100%;
+        padding: 0;
+      }
+    }
+    &.technologies {
+      ul.technologies-container {
+        li.technology-icon {
+          width: calc(100% / 6);
+        }
+      }
+    }
+  }
+  section.page-view {
+    div.inner {
+      div.view.mobile {
+        width: 40%;
+      }
     }
   }
 }
@@ -134,16 +195,44 @@
       }
     }
   }
+  span.dropdown {
+    width: 100%;
+    margin: 0 0 1rem;
+  }
+  section.page-view {
+    div.inner {
+      div.view.mobile {
+        width: 50%;
+      }
+    }
+  }
+  ul.expertise-container {
+    column-count: 1;
+  }
 }
 @media only screen and (max-width: 480px) {
   html { font-size: 14px; }
   h1 {
-    font-size: 2.8rem;
-    line-height: 2.8rem;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
   }
   section.page-section {
     &.about {
       p { width: 100%; }
+    }
+    &.technologies {
+      ul.technologies-container {
+        li.technology-icon {
+          width: calc(100% / 4);
+        }
+      }
+    }
+  }
+  section.page-view {
+    div.inner {
+      div.view.mobile {
+        width: 60%;
+      }
     }
   }
 }
